@@ -6,7 +6,7 @@ const app = express();
 app.use(
   corsMiddleWare({
     credentials: true,
-    origin: "https://localhost:3000", // URL of the react (Frontend) app
+    origin: "http://localhost:3000", // URL of the react (Frontend) app
   })
 );
 
@@ -23,6 +23,10 @@ if (process.env.DELAY) {
 app.get("/", async (req, res) => {
   res.send("Hi from express");
 });
+
+// POST endpoint for storing image in database
+const photoRouter = require("./routers/photo");
+app.use("/", photoRouter);
 
 // Listen for connections on specified port (default is port 4000)
 const { PORT } = require("./config/constants");
