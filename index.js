@@ -6,7 +6,7 @@ const app = express();
 app.use(
   corsMiddleWare({
     credentials: true,
-    origin: "http://localhost:3000", // URL of the react (Frontend) app
+    origin: "https://livewall-assessment.netlify.app", // URL of the react (Frontend) app
   })
 );
 
